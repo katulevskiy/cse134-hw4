@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Daniil Katulevskiy's personal portfolio showcasing projects, skills, and experience."
+    />
+    <meta name="author" content="Daniil Katulevskiy" />
+    <title>Daniil Katulevskiy - Portfolio Home</title>
+    <!-- Load Montserrat from Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <!-- Hamburger menu button: visible on small screens -->
+        <a href="#nav" class="nav-toggle-button">&#9776;</a>
+        <!-- Navigation menu container with id="nav" -->
+        <div id="nav" class="nav-menu">
+          <!-- Close button to clear the target -->
+          <a href="#" class="nav-close">&times;</a>
+          <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="experiments.html">Experiments</a></li>
+            <!-- Social links integrated into the nav menu -->
+            <li class="social-link">
+              <a href="https://katul-portfolio.netlify.app/" target="_blank">
+                <img
+                  src="assets/netlify-logo.webp"
+                  alt="Netlify Logo"
+                  class="nav-icon"
+                />
+              </a>
+            </li>
+            <li class="social-link">
+              <a
+                href="https://github.com/katulevskiy/cse134-hw3"
+                target="_blank"
+              >
+                <img
+                  src="assets/github-logo.webp"
+                  alt="GitHub Logo"
+                  class="nav-icon"
+                />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero Section with full-page background (using CSS background) -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Welcome</h1>
+        <h2>Daniil Katulevskiy</h2>
+      </div>
+    </section>
+
+    <!-- Featured Project Section using proj3 images -->
+    <section class="featured-project">
+      <h2>Featured Project</h2>
+      <figure>
+        <picture>
+          <source
+            srcset="
+              assets/proj3-480.webp   480w,
+              assets/proj3-800.webp   800w,
+              assets/proj3-1200.webp 1200w
+            "
+            type="image/webp"
+          />
+          <source
+            srcset="
+              assets/proj3-480.jpg   480w,
+              assets/proj3-800.jpg   800w,
+              assets/proj3-1200.jpg 1200w
+            "
+            type="image/jpeg"
+          />
+          <img
+            src="assets/proj3-1200.jpg"
+            alt="Featured Project – Dynamic Solution"
+            style="width: 100%"
+            loading="lazy"
+          />
+        </picture>
+        <figcaption>Featured Project: Dynamic Solution</figcaption>
+      </figure>
+      <p>
+        This project demonstrates my ability to build interactive and responsive
+        web applications using modern web technologies.
+      </p>
+      <a href="https://github.com/katulevskiy/featured-project" class="btn"
+        >View Project on GitHub</a
+      >
+    </section>
+
+    <!-- Projects Section Grid (each tile uses a <picture> element with srcset) -->
+    <section class="projects-grid">
+      <h2>My Projects</h2>
+      <div class="grid-container">
+        <a href="projects.html" class="project-tile">
+          <picture>
+            <source
+              srcset="
+                assets/proj1-480.webp   480w,
+                assets/proj1-800.webp   800w,
+                assets/proj1-1200.webp 1200w
+              "
+              type="image/webp"
+            />
+            <source
+              srcset="
+                assets/proj1-480.jpg   480w,
+                assets/proj1-800.jpg   800w,
+                assets/proj1-1200.jpg 1200w
+              "
+              type="image/jpeg"
+            />
+            <img
+              src="assets/proj1-1200.jpg"
+              alt="Project One – Innovative Web App"
+              style="object-fit: cover; object-position: center"
+              loading="lazy"
+            />
+          </picture>
+          <p>Project One – Innovative Web App</p>
+        </a>
+        <a href="projects.html" class="project-tile">
+          <picture>
+            <source
+              srcset="
+                assets/proj2-480.webp   480w,
+                assets/proj2-800.webp   800w,
+                assets/proj2-1200.webp 1200w
+              "
+              type="image/webp"
+            />
+            <source
+              srcset="
+                assets/proj2-480.jpg   480w,
+                assets/proj2-800.jpg   800w,
+                assets/proj2-1200.jpg 1200w
+              "
+              type="image/jpeg"
+            />
+            <img
+              src="assets/proj2-1200.jpg"
+              alt="Project Two – Creative Design"
+              style="object-fit: cover; object-position: center"
+              loading="lazy"
+            />
+          </picture>
+          <p>Project Two – Creative Design</p>
+        </a>
+        <a href="projects.html" class="project-tile">
+          <picture>
+            <source
+              srcset="
+                assets/proj3-480.webp   480w,
+                assets/proj3-800.webp   800w,
+                assets/proj3-1200.webp 1200w
+              "
+              type="image/webp"
+            />
+            <source
+              srcset="
+                assets/proj3-480.jpg   480w,
+                assets/proj3-800.jpg   800w,
+                assets/proj3-1200.jpg 1200w
+              "
+              type="image/jpeg"
+            />
+            <img
+              src="assets/proj3-1200.jpg"
+              alt="Project Three – Dynamic Solution"
+              style="object-fit: cover; object-position: center"
+              loading="lazy"
+            />
+          </picture>
+          <p>Project Three – Dynamic Solution</p>
+        </a>
+        <a href="projects.html" class="project-tile">
+          <picture>
+            <source
+              srcset="
+                assets/proj4-480.webp   480w,
+                assets/proj4-800.webp   800w,
+                assets/proj4-1200.webp 1200w
+              "
+              type="image/webp"
+            />
+            <source
+              srcset="
+                assets/proj4-480.jpg   480w,
+                assets/proj4-800.jpg   800w,
+                assets/proj4-1200.jpg 1200w
+              "
+              type="image/jpeg"
+            />
+            <img
+              src="assets/proj4-1200.jpg"
+              alt="Project Four – Cutting-edge Technology"
+              style="object-fit: cover; object-position: center"
+              loading="lazy"
+            />
+          </picture>
+          <p>Project Four – Cutting-edge Technology</p>
+        </a>
+      </div>
+    </section>
+
+    <footer>
+      <address>
+        Contact:
+        <a href="mailto:dkatulevskiy@ucsd.edu">dkatulevskiy@ucsd.edu</a>
+      </address>
+      <p>&copy; 2025 Daniil Katulevskiy - Portfolio</p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Contact Daniil Katulevskiy" />
+    <meta name="author" content="Daniil Katulevskiy" />
+    <title>Contact - Daniil Katulevskiy</title>
+    <!-- Load Montserrat from Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .contact-form {
+        max-width: 600px;
+        margin: 2rem auto;
+        padding: 2rem;
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+      }
+      .contact-form label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+      }
+      .contact-form input,
+      .contact-form textarea {
+        width: 100%;
+        padding: 0.5rem;
+        margin-bottom: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      .contact-form button {
+        background: var(--primary-color);
+        color: #fff;
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1rem;
+      }
+      .contact-form button:hover {
+        background: var(--accent-color);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="#nav" class="nav-toggle-button">&#9776;</a>
+        <div id="nav" class="nav-menu">
+          <a href="#" class="nav-close">&times;</a>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+            <li><a href="experiments.html">Experiments</a></li>
+            <li class="social-link">
+              <a href="https://katul-portfolio.netlify.app/" target="_blank">
+                <img
+                  src="assets/netlify-logo.webp"
+                  alt="Netlify Logo"
+                  class="nav-icon"
+                />
+              </a>
+            </li>
+            <li class="social-link">
+              <a
+                href="https://github.com/katulevskiy/cse134-hw3"
+                target="_blank"
+              >
+                <img
+                  src="assets/github-logo.webp"
+                  alt="GitHub Logo"
+                  class="nav-icon"
+                />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section
+        class="contact-section"
+        style="padding: 2rem; text-align: center"
+      >
+        <h1>Contact Me</h1>
+        <form
+          class="contact-form"
+          action="mailto:dkatulevskiy@ucsd.edu"
+          method="post"
+          enctype="text/plain"
+        >
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required />
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" name="subject" />
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+
+          <button type="submit">Send Message</button>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <address>
+        Contact:
+        <a href="mailto:dkatulevskiy@ucsd.edu">dkatulevskiy@ucsd.edu</a>
+      </address>
+      <p>&copy; 2025 Daniil Katulevskiy - Portfolio</p>
+    </footer>
+  </body>
+</html>

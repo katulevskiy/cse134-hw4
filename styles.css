@@ -1,13 +1,20 @@
+/* =========================================================
+   CSS Variables, Custom Fonts, Layout, Animations, Media Queries
+   ========================================================= */
+
 /* --------------------------------
    CSS Variables with fallback
    -------------------------------- */
 :root {
   --primary-color: #3c78d8;
   --accent-color: #c05050;
-  --bg-color: #fafafa;
+  --bg-color: #f2f2f2;
   --font-primary: "Montserrat", Arial, sans-serif;
+  --text-color: #333; /* default text color for light mode */
   /* Use color-mix for a gradient effect if supported */
   --gradient-color: color-mix(in srgb, #3c78d8 50%, #c05050 50%);
+  --card-bg: #fff;
+  --card-border: #ddd;
 }
 
 /* --------------------------------
@@ -22,7 +29,7 @@
 body {
   font-family: var(--font-primary);
   background-color: var(--bg-color);
-  color: #333;
+  color: var(--text-color);
   line-height: 1.6;
 }
 
@@ -49,6 +56,7 @@ header nav ul li a {
   transition: color 0.3s ease;
 }
 
+/* Active and hover styling for light mode */
 header nav ul li a.active,
 header nav ul li a:hover {
   color: var(--accent-color);
@@ -63,9 +71,21 @@ header nav ul li a:hover {
 
 /* Desktop navigation styling */
 .nav-menu {
-  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0 1rem;
+}
+
+.nav-links {
+  flex: 1;
   display: flex;
   justify-content: center;
+}
+
+.nav-extras {
+  display: flex;
   align-items: center;
   gap: 1rem;
 }
@@ -79,18 +99,29 @@ header nav ul li a:hover {
   display: none;
 }
 
+/* ---------- Theme Toggle Button ---------- */
+.theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-color);
+}
+
+/* Hide theme toggle if JavaScript is disabled */
+.no-js #theme-toggle {
+  display: none;
+}
+
 /* --------------------------------
    Responsive Navigation for Small Screens
    -------------------------------- */
 @media (max-width: 768px) {
-  /* Ensure header stays consistent */
   header {
     background-color: var(--primary-color);
     min-height: 60px;
     position: relative;
   }
-
-  /* Hamburger menu button: vertically centered */
   .nav-toggle-button {
     display: block;
     font-size: 2rem;
@@ -102,8 +133,6 @@ header nav ul li a:hover {
     transform: translateY(-50%);
     z-index: 200;
   }
-
-  /* Mobile nav menu: hidden by default, shown via :target */
   .nav-menu {
     display: none;
     position: fixed;
@@ -117,22 +146,17 @@ header nav ul li a:hover {
     justify-content: center;
     z-index: 100;
   }
-
   .nav-menu:target {
     display: flex;
   }
-
   .nav-menu ul {
     list-style: none;
     text-align: center;
     padding: 0;
   }
-
   .nav-menu li {
     margin: 1rem 0;
   }
-
-  /* Mobile close button */
   .nav-close {
     display: block;
     position: absolute;
@@ -168,7 +192,7 @@ header nav ul li a:hover {
   right: 0;
   bottom: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.5); /* Dark overlay for readability */
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .hero-content {
@@ -192,8 +216,8 @@ header nav ul li a:hover {
   max-width: 1200px;
   margin: 2rem auto;
   padding: 2rem;
-  background: #fff;
-  border: 1px solid #ddd;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
@@ -202,7 +226,8 @@ header nav ul li a:hover {
 .featured-project h2 {
   margin-bottom: 1rem;
   font-size: 2rem;
-  color: var(--primary-color);
+  /* For projects page, force header to white */
+  color: #fff;
 }
 
 .featured-project figure {
@@ -249,7 +274,6 @@ header nav ul li a:hover {
   );
 }
 
-/* Remove rounding for featured project on small screens */
 @media (max-width: 600px) {
   .featured-project {
     border-radius: 0;
@@ -271,13 +295,13 @@ header nav ul li a:hover {
 .projects-grid h2 {
   margin-bottom: 1.5rem;
   font-size: 2rem;
-  color: var(--primary-color);
+  color: #000; /* black for light theme */
   text-align: center;
   padding: 1rem;
 }
 
 main {
-  padding: 2dvh 2dvw; /* using dynamic viewport height and width */
+  padding: 2dvh 2dvw;
 }
 
 .projects-section h1 {
@@ -287,7 +311,6 @@ main {
   color: var(--primary-color);
 }
 
-/* Adding padding to grid container so tiles don’t stretch edge-to-edge */
 .grid-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -300,8 +323,8 @@ main {
 .project-tile {
   text-decoration: none;
   color: #333;
-  background: #fff;
-  border: 1px solid #ddd;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: 8px;
   overflow: hidden;
   transition:
@@ -323,6 +346,7 @@ main {
 
 .project-tile:hover {
   transform: translateY(-5px);
+  /* Ensure shadow is dark (and not white) */
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
 }
 
@@ -335,17 +359,18 @@ main {
   align-items: center;
   margin-bottom: 3rem;
   padding: 1rem;
-  border: 1px solid #ddd;
+  /*border: 1px solid #ddd;*/
   /* Reserve left border space */
   border-left: 5px solid transparent;
   border-radius: 8px;
-  background: #fff;
+  background: var(--card-bg);
   overflow: hidden;
   animation: slideIn 0.8s ease-out;
 }
 
 .project:hover {
-  border-left-color: var(--primary-color);
+  /* Change left border on hover to yellow */
+  border-left-color: var(--accent-color);
 }
 
 .project:has(.github-link:hover) {
@@ -362,9 +387,16 @@ main {
   margin-bottom: 0.5rem;
 }
 
+.dark .projects-section h1 {
+  color: #fff;
+}
+
 .project-description p {
   font-size: 1rem;
   margin-bottom: 1rem;
+}
+
+.dark article.project {
 }
 
 .github-link {
@@ -445,7 +477,6 @@ footer address {
 /* --------------------------------
    Global Media Queries for Typography Adjustments
    -------------------------------- */
-/* For Phones */
 @media (max-width: 600px) {
   header nav ul {
     flex-direction: column;
@@ -458,7 +489,6 @@ footer address {
   }
 }
 
-/* For Tablets & Small Laptops */
 @media (min-width: 601px) and (max-width: 992px) {
   .hero-content h1 {
     font-size: 3rem;
@@ -468,7 +498,6 @@ footer address {
   }
 }
 
-/* For Desktops */
 @media (min-width: 993px) {
   .hero-content h1 {
     font-size: 3.5rem;
@@ -486,7 +515,7 @@ footer address {
   margin: 2rem auto;
   padding: 2rem;
   background: #fff;
-  border: none; /* No visible bounding box */
+  border: none;
   border-radius: 8px;
 }
 
@@ -525,10 +554,6 @@ footer address {
   font-size: 0.9rem;
 }
 
-.contact-form fieldset {
-  border: 0 none;
-}
-
 #error-output {
   color: #c00;
 }
@@ -536,3 +561,86 @@ footer address {
 #info-output {
   color: #090;
 }
+
+.dark .contact-form {
+  background: var(--card-bg); /* Uses dark card background */
+  color: var(--text-color);
+}
+
+.dark .contact-form input,
+.dark .contact-form textarea {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  color: var(--text-color);
+}
+
+.dark .contact-form button {
+  /* Optionally adjust button text color if needed */
+  color: var(--text-color);
+}
+
+fieldset {
+  border: none;
+}
+
+/* -------------------------------
+   Dark Mode Overrides
+   ------------------------------- */
+.dark {
+  --primary-color: #1e1e1e;
+  --accent-color: #ffb74d;
+  --bg-color: #222;
+  --text-color: #f1f1f1;
+  --card-bg: #333;
+  --card-border: #444;
+}
+
+.dark body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.dark header {
+  background-color: var(--primary-color);
+}
+
+/* Ensure navigation links remain visible in dark mode */
+.dark header nav ul li a {
+  color: var(--text-color);
+}
+
+/* Restore active and hover styles for dark mode */
+.dark header nav ul li a.active,
+.dark header nav ul li a:hover {
+  color: var(--accent-color);
+}
+
+.dark .projects-grid h2 {
+  color: var(--text-color);
+}
+
+/* Featured Project Section */
+.dark .featured-project {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  color: var(--text-color);
+}
+.dark .featured-project h2 {
+  /* Force the featured project header to be light */
+  color: var(--text-color);
+}
+.dark .featured-project figcaption {
+  color: #ccc;
+}
+
+/* Project Tiles */
+.dark .project-tile {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  color: var(--text-color);
+}
+.dark .project-tile p {
+  color: var(--text-color);
+}
+
+/* Dark mode adjustments for contact form remain as inherited from base styles */
